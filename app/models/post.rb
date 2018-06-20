@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
     def clickbaity?
       if title.include? ("Won't Believe Secret Top 10 Guess")
-        
+        errors.add(:title )
     end
     
 end
