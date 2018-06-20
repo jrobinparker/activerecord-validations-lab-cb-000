@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   
     validates :title, presence: true
-    validates_inclusion_of
+    validates_inclusion_of :title, in: 
     validates :content, length: { minimum: 250 }
     validates :summary, length: { maximum: 250 }
     validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
