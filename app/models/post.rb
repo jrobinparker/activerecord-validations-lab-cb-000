@@ -6,11 +6,9 @@ class Post < ActiveRecord::Base
     validates :summary, length: { maximum: 250 }
     validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
 
-  def correct_sphare_types
-    if self.sphare.blank?
-      errors.add(:sphare, "sphare is blank/invalid")
-    elsif self.sphare.detect { |s| !(%w(Good Bad Neutral).include? s) }
-      errors.add(:sphare, "sphare is invalid")
+  def clickbaity_title
+    if self.sphare.detect { |s| !(["Won't Believe", "Secret", "Top 10", "Guess"].include? s) }
+      errors.add(:title, "title is not clickbaity enough!")
     end
   end
 
