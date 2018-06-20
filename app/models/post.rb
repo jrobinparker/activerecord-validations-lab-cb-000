@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
     validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
 
   def clickbaity_title
-    if self.title.detect { |s| !(["Won't Believe", "Secret", "Top 10", "Guess"].include? s) }
+    if self.title.include? { |s| !(["Won't Believe", "Secret", "Top 10", "Guess"].include? s) }
       errors.add(:title, "title is not clickbaity enough!")
     end
   end
