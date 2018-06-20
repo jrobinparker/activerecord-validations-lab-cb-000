@@ -6,7 +6,8 @@ class Post < ActiveRecord::Base
     validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
     validates_inclusion_of :title,  in: %w("Won't Believe" Secret "Top 10" Guess)
     
-    def clickbaity
-      
+    def clickbaity?
+      title.include? = ["Won't Believe", "Secret", "Top 10", "Guess"]
+    end
     
 end
